@@ -11,7 +11,7 @@ body {
     vertical-align: top;
     display: inline-block;
 }
-#move{display: inline-block;
+#move, #win{display: inline-block;
     vertical-align:top;
     width:30px;
     border:dotted 1px red;}
@@ -43,8 +43,7 @@ body {
     background: var(--varBG2);
 }
 
-.bl1 .bl-2,
-#bl1 .bl-2 {}
+
 
 .bl2 .bl-1,
 #bl2 .bl-1 {
@@ -55,8 +54,7 @@ body {
     background: var(--varBG2);
 }
 
-.bl2 .bl-2,
-#bl2 .bl-2 {}
+
 
 .bl3 .bl-1,
 #bl3 .bl-1 {

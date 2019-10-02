@@ -55,9 +55,10 @@ function Board() {
           //console.log({"bottom":bottom,"bottomParent":bottomParent(),"checkBottom":checkBottom})
           var checkLeft = !left ? !!left == !!leftParent() : true;
           //console.log({"left":left,"leftParent":leftParent(),"checkLeft":checkLeft})
-          if (!checkTop || !checkRight || !checkBottom || !checkLeft) { console.log("fail"); break; } else var a = "prostotak"
+          if (!checkTop || !checkRight || !checkBottom || !checkLeft) { console.log("fail");document.getElementById("win").innerHTML="fail"; break; } else var a = "prostotak"
       }
-      console.log("win")
+      console.log("win");
+      
   }
 }
 var board = new Board();
@@ -127,15 +128,15 @@ function current_figure_rand() {
 
 }
 function freeways(innerId, outerId){
-  if (innerId == 1) {
+  if (innerId == 0) {
     start_ways=[0,1,1,0]
-  } else if (innerId == 5) {
+  } else if (innerId == 4) {
     start_ways=[1,1,0,0]
   } else  {start_ways=[1,1,1,0]};
 
-  if (outerId == 1) {
+  if (outerId == 0) {
     end_ways=[0,0,1,1]
-  } else if (innerId == 5){
+  } else if (innerId == 4){
     end_ways=[1,0,0,1]
   } else  {end_ways=[1,0,1,1]}
 
@@ -180,8 +181,10 @@ pF.querySelectorAll('td').forEach(function (e) {
       if ((id==endId) || (id==startId)){return}
       console.log("+")
       board.writeChanges(id, false)
+      document.getElementById("move").innerHTML=++move;
       //console.log(board.table)
       document.getElementById(current_figure_id).setAttribute('style', 'opacity:0.2');
+      document.getElementById("win").innerHTML="win";
       document.getElementById("move").innerHTML=++move;
       current_figure_rand();
       board.checkWin();
